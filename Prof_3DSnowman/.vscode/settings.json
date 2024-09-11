@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Pref_3DSnowman.sln"
+    "dotnet.defaultSolution": "Prof_3DSnowman.sln"
 }
