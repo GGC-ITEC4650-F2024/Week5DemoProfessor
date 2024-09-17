@@ -5,6 +5,7 @@ using UnityEngine;
 public class FP_Mover : MonoBehaviour
 {
     Transform myTran;
+    CharacterController myCon;
 
     public float speed;
     public float rotSpeed;
@@ -15,6 +16,7 @@ public class FP_Mover : MonoBehaviour
     void Start()
     {
         myTran = GetComponent<Transform>();
+        myCon = GetComponent<CharacterController>();
         myRot = myTran.eulerAngles;
     }
 
@@ -26,7 +28,8 @@ public class FP_Mover : MonoBehaviour
         float v = Input.GetAxis("Vertical");
         Vector3 step = h * myTran.right + v * myTran.forward;
         step.y = 0; // don't fly
-        myTran.position += (step * speed * Time.deltaTime);
+        //myTran.position += (step * speed * Time.deltaTime);
+        myCon.Move(step * speed * Time.deltaTime);
 
         //ROTATE
         float mx = Input.GetAxis("Mouse X");
